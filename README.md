@@ -44,14 +44,14 @@ Looking at the data, I can clearly see that more vehicles were stolen during sum
 #### 4. Replace the numeric day of week values with the full name of each day of the week (Sunday, Monday, Tuesday, etc.)  
 ##### Query  
 ` SELECT DAYOFWEEK(date_stolen) AS dow, `  
-        	` CASE WHEN DAYOFWEEK(date_stolen) = 1 THEN 'Sunday' `  
-	     ` WHEN DAYOFWEEK(date_stolen) = 2 THEN 'Monday' `    
-         ` WHEN DAYOFWEEK(date_stolen) = 3 THEN 'Tuesday' `  
-         ` WHEN DAYOFWEEK(date_stolen) = 4 THEN 'Wednesday' `  
-         ` WHEN DAYOFWEEK(date_stolen) = 5 THEN 'Thursday' `  
-         ` WHEN DAYOFWEEK(date_stolen) = 6 THEN 'Friday' `  
-         ` ELSE 'Saturday' END AS day_of_week, `  
-	` COUNT(vehicle_id) AS num_vehicles `  
+		` CASE WHEN DAYOFWEEK(date_stolen) = 1 THEN 'Sunday' `  
+			` WHEN DAYOFWEEK(date_stolen) = 2 THEN 'Monday' `    
+	` WHEN DAYOFWEEK(date_stolen) = 3 THEN 'Tuesday' `  
+	` WHEN DAYOFWEEK(date_stolen) = 4 THEN 'Wednesday' `  
+	` WHEN DAYOFWEEK(date_stolen) = 5 THEN 'Thursday' `  
+	` WHEN DAYOFWEEK(date_stolen) = 6 THEN 'Friday' `  
+	` ELSE 'Saturday' END AS day_of_week, `  
+		` COUNT(vehicle_id) AS num_vehicles `  
 ` FROM stolen_vehicles `  
 ` GROUP BY DAYOFWEEK(date_stolen), day_of_week `  
 ` ORDER BY dow; `  
