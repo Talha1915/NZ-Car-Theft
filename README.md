@@ -33,14 +33,15 @@ Looking at the data, I can clearly see that more vehicles were stolen during sum
 ` GROUP BY DAYOFWEEK(date_stolen) `  
 ` ORDER BY dow; `  
 ##### Results  
-dow        num_vehicles      
-1	              595  
-2	              767
-3	              711
-4	              629
-5	              619
-6	              655
-7	              577
+dow              num_vehicles       
+1	              595    
+2	              767  
+3	              711  
+4	              629  
+5	              619  
+6	              655  
+7	              577  
+
 
 
 
