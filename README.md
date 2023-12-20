@@ -43,7 +43,7 @@ Looking at the data, I can clearly see that more vehicles were stolen during sum
      7	                577  
 #### 4. Replace the numeric day of week values with the full name of each day of the week (Sunday, Monday, Tuesday, etc.)  
 ##### Query  
-` SELECT DAYOFWEEK(date_stolen) AS dow,     
+` SELECT DAYOFWEEK(date_stolen) AS dow, <br>     
 		CASE WHEN DAYOFWEEK(date_stolen) = 1 THEN 'Sunday'    
 			WHEN DAYOFWEEK(date_stolen) = 2 THEN 'Monday'       
 		WHEN DAYOFWEEK(date_stolen) = 3 THEN 'Tuesday'    
