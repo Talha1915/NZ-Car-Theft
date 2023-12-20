@@ -16,10 +16,10 @@ I was given the data to help raise awareness about motor vehicle thefts in New Z
 ` GROUP BY MONTH(date_stolen) `  
 ` ORDER BY MONTH(date_stolen); `  
 ##### Results
-	MONTH(date_stolen)	num_vehicles  
-	1	                                 740  
-	2	                                 763  
-	3	                                1053  
+	MONTH(date_stolen)	              num_vehicles  
+	1	                                  740  
+	2	                                  763  
+	3	                                  1053  
 	4	                                  329  
 	10	                                  464  
 	11	                                  560  
