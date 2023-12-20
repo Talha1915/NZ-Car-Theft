@@ -4,5 +4,8 @@ I was given the data to help raise awareness about motor vehicle thefts in New Z
 
 ` SELECT YEAR(date_stolen), count(vehicle_id) AS num_vehicles `     
 ` FROM stolen_vehicles `      
-` GROUP BY YEAR(date_stolen); `
+` GROUP BY YEAR(date_stolen); `  
+2021	-	1668
+2022	-	2885
+
 
