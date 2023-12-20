@@ -26,6 +26,22 @@ I was given the data to help raise awareness about motor vehicle thefts in New Z
 	12	                                  644  
 The data showed anomaly for the month of April. The number was significantly low compared with other months data. I took a deeper look in April’s data and found that only 6 days of data was available for April causing the number of thefts to be so low.  
 Looking at the data, I can clearly see that more vehicles were stolen during summer times (December to March).
+#### 3. Find the number of vehicles stolen each day of the week.  
+##### Query  
+` SELECT DAYOFWEEK(date_stolen) AS dow, COUNT(vehicle_id) AS num_vehicles `  
+` FROM stolen_vehicles `  
+` GROUP BY DAYOFWEEK(date_stolen) `  
+` ORDER BY dow; `  
+##### Results  
+dow        num_vehicles      
+1	              595  
+2	              767
+3	              711
+4	              629
+5	              619
+6	              655
+7	              577
+
 
 
 
