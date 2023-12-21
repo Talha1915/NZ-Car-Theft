@@ -148,7 +148,7 @@ I did not have the information of luxury or standard in stolen_vehicles table, i
 ##### Query
 ` WITH lux_standard AS (SELECT vehicle_type, CASE WHEN make_type = 'Luxury' THEN 1 ELSE 0 END AS luxury `  
 ` FROM stolen_vehicles sv LEFT JOIN make_details md `  
-` ON sv.make_id = md.make_id) `
+` ON sv.make_id = md.make_id) `  
 ` SELECT vehicle_type, SUM(luxury)/COUNT(luxury) * 100 AS pct_luxury `
 ` FROM lux_standard `  
 ` GROUP BY vehicle_type `  
