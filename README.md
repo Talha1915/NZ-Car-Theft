@@ -63,7 +63,11 @@ Looking at the data, I can clearly see that more vehicles were stolen during sum
     5	       Thursday	          619  
     6	        Friday	          655  
     7	       Saturday	          577  
-     
+#### 5. Create a bar chart that shows the number of vehicles stolen on each day of the week
+To create bar char, I exported my data to excel as CSV file.
+To my surprise the numbers were highest on Mondays and Tuesdays. Then, there was a drop and it again rose on Friday.
+
+
 
 
 
