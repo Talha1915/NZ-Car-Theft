@@ -70,13 +70,43 @@ Graph uploaded as file Obj1_bar chart
 ### OBJECTIVE 2: Identify which vehicles are likely to be stolen
 The second objective is to explore the vehicle type, age, luxury vs standard and color fields in the stolen_vehicles table to identify which vehicles are most likely to be stolen.
 
+### OBJECTIVE 2: Identify which vehicles are likely to be stolen
+The second objective is to explore the vehicle type, age, luxury vs standard and color fields in the stolen_vehicles table to identify which vehicles are most likely to be stolen.
+
+#### 1. Find the vehicle types that are most often and least often stolen.     
+##### Query
+` SELECT vehicle_type, COUNT(vehicle_id) as num_vehicles `  
+` FROM stolen_vehicles `  
+` Group By vehicle_type `  
+` Order BY num_vehicles DESC `  
+` LIMIT 5; `
 ##### Results
-  Vehicle_type          num_vehicles  
-  Stationwagon	         945  
-  Saloon	             851  
-  Hatchback	             644  
-  Trailer	             582  
-  Utility	             466
+|Vehicle_type|num_vehicles| 
+|:------------------:|:------------:| 
+|Stationwagon|945| 
+|Saloon|851|  
+|Hatchback|644|  
+|Trailer|582|  
+|Utility|466|
+##### Query 
+` SELECT vehicle_type, COUNT(vehicle_id) as num_vehicles`  
+` FROM stolen_vehicles `  
+` GROUP BY vehicle_type `  
+` ORDER BY num_vehicles `  
+` LIMIT 5; `
+
+##### Results
+|vehicle_type|num_vehicles|
+|:-------------------:|:--------:|
+|Articulated Truck|1|
+|Special Purpose Vehicle|1|
+|Mobile Machine|2|
+|Trail Bike|2|
+|Tractor|4|  
+
+I found that Stationwagon is highest stolen vehicle type, on the other hand Articulated Truck/Special Purpose vehicle is lowest in number.
+
+
 
 
 
