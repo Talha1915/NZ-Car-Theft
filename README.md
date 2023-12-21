@@ -183,7 +183,47 @@ I did not have the information of luxury or standard in stolen_vehicles table, i
 |Cab and Chassis Only|0.0000|
 |Mobile Machine|0.0000|  
 
-The results showed that half of convertibles and about 22% sports cars stolen were luxury vehicles.
+The results showed that half of convertibles and about 22% sports cars stolen were luxury vehicles.  
+
+#### 4. Create a table where the rows represent the top 10 vehicle types, the columns represent the top 7 vehicle colors (plus 1 column for all other colors) and the values are the number of vehicles stolen 
+##### Query
+` SELECT color, COUNT(vehicle_id) AS num_vehicles `  
+` FROM stolen_vehicles `  
+` GROUP BY color `  
+` ORDER BY num_vehicles DESC; `  
+
+` SELECT vehicle_type, COUNT(vehicle_id) AS num_vehicle, `  
+`		SUM(CASE WHEN color = 'Silver' THEN 1 ELSE 0 END) AS Silver, `  
+` 		SUM(CASE WHEN color = 'White' THEN 1 ELSE 0 END) AS White, `  
+` 		SUM(CASE WHEN color = 'Black' THEN 1 ELSE 0 END) AS Black, `  
+` 		SUM(CASE WHEN color = 'Blue' THEN 1 ELSE 0 END) AS Blue, `  
+` 		SUM(CASE WHEN color = 'Red' THEN 1 ELSE 0 END) AS Red, `  
+` 		SUM(CASE WHEN color = 'Grey' THEN 1 ELSE 0 END) AS Grey, `  
+` 		SUM(CASE WHEN color = 'Green' THEN 1 ELSE 0 END) AS Green, `  
+` 		SUM(CASE WHEN color IN ('Gold', 'Brown', 'Yellow', 'Orange',                      'Purple', 'Cream', 'Pink') `     
+` 		THEN 1 ELSE 0 END) AS Other `  
+` FROM stolen_vehicles `  
+` GROUP BY vehicle_type `  
+` ORDER BY num_vehicle DESC `  
+` LIMIT 10; `  
+
+
+##### Results
+|Vehicle_type|num_vehicle|Silver|White|Black|Blue|Red|Grey|Green|Other| 
+|:--------------------:|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+|Stationwagon|	945|223|159|141|142|84|84|	59|53|
+|Saloon|851|226|160|99|125|	75|71|52|43|
+|Hatchback|644|172|114|76|104|58|46|24|50|
+|Trailer|582|399|21|29|17|9|73|22|12|
+|Utility|466|71|183|36|46|45|32|38|15|
+|Roadbike|297|17|42|105|38|	51|11|12|21|
+|Moped|187|8|25|85|	18|34|3|1|13|
+|Light Van|154|19|104|0|5|7|	7|6|6|
+|Boat Trailer|105|67|5|3|0|0|	29|0|1|
+|Trailer – Heavy|90|53|9|1|3|0|12|2|10|  
+
+The results showed Silver and White are the top colors for most of the vehicle types.
+
 
 
 
