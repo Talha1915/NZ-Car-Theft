@@ -106,6 +106,42 @@ The second objective is to explore the vehicle type, age, luxury vs standard and
 
 I found that Stationwagon is highest stolen vehicle type, on the other hand Articulated Truck/Special Purpose vehicle is lowest in number.
 
+#### 2. For each vehicle type, find the average age of the cars that are stolen.
+##### Query
+` SELECT vehicle_type, AVG(YEAR(date_stolen) - model_year) AS avg_age `  
+` FROM stolen_vehicles `  
+` GROUP BY vehicle_type `  
+` Order BY avg_age DESC `  
+##### Results
+|vehicle_type|avg_age|
+|:-------------------------------:|:--------------:|
+|Special Purpose Vehicle|64.0000|
+|Mobile Home – Light|34.6667|
+|Flat Deck Truck|27.8235|
+|Caravan|27.8182|
+|Other Truck|23.1905|
+|Convertible|22.6667|
+|Heavy Van|22.5714|
+|Sports Car|22.0000|
+|Trail Bike|20.5000|
+|Light Van|19.4351|
+|Stationwagon|	19.2148|
+|Saloon|19.0529|
+|Utility|17.8176|
+|Hatchback|16.2671|
+|Articulated Truck|15.0000|
+|Light Bus|14.6667|
+|Boat Trailer|13.2762|
+|Trailer – Heavy|11.4556|
+|Trailer|11.4141|
+|All Terrain Vehicle|10.6000|
+|Cab and Chassis Only|10.5000|
+|Roadbike|9.5488|
+|Moped|7.4813|
+|Tractor|7.0000|
+|Mobile Machine|4.0000|  
+
+The age of vehicle was not given, so I first calculated the age. The results suggested that newer mobile machine, tractors, and Mopeds were often stolen.  
 
 
 
