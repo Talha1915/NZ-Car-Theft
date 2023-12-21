@@ -66,7 +66,9 @@ Looking at the data, I can clearly see that more vehicles were stolen during sum
 #### 5. Create a bar chart that shows the number of vehicles stolen on each day of the week
 To create bar char, I exported my data to excel as CSV file.
 To my surprise the numbers were highest on Mondays and Tuesdays. Then, there was a drop and it again rose on Friday.  
-Graph uploaded as file Obj1_bar chart
+Graph uploaded as file Obj1_bar chart  
+### OBJECTIVE 2: Identify which vehicles are likely to be stolen
+The second objective is to explore the vehicle type, age, luxury vs standard and color fields in the stolen_vehicles table to identify which vehicles are most likely to be stolen.
 
 
 
