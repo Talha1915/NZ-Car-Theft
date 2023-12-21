@@ -141,7 +141,49 @@ I found that Stationwagon is highest stolen vehicle type, on the other hand Arti
 |Tractor|7.0000|
 |Mobile Machine|4.0000|  
 
-The age of vehicle was not given, so I first calculated the age. The results suggested that newer mobile machine, tractors, and Mopeds were often stolen.  
+The age of vehicle was not given, so I first calculated the age. The results suggested that newer mobile machine, tractors, and Mopeds were often stolen.   
+
+#### 3. For each vehicle type, find the percent of vehicles stolen that are luxury versus standard.  
+I did not have the information of luxury or standard in stolen_vehicles table, it was present in make_details table. So, I used LEFT JOIN to create a new table with data from both stolen_vehicles and make_details table. I used LEFT JOIN because stolen_vehicles was my main table with all data. Then, I used WITH clause to create a common table with relevant data only.
+##### Query
+` WITH lux_standard AS (SELECT vehicle_type, CASE WHEN make_type = 'Luxury' THEN 1 ELSE 0 END AS luxury `  
+` FROM stolen_vehicles sv LEFT JOIN make_details md `  
+` ON sv.make_id = md.make_id) `
+` SELECT vehicle_type, SUM(luxury)/COUNT(luxury) * 100 AS pct_luxury `
+` FROM lux_standard `  
+` GROUP BY vehicle_type `  
+` ORDER BY pct_luxury DESC; `  
+
+##### Results  
+|vehicle_type|pct_luxury|
+|:--------------------:|:--------------:|
+|Convertible|50.0000|
+|Sports Car|22.5000
+|Heavy Van|14.2857|
+|Saloon|12.9260|
+|Stationwagon|3.7037|
+|Hatchback|3.2609|
+|Roadbike|1.3468|
+|Light Van|1.2987|
+|Utility|0.2146|
+|Trailer|0.0000|
+|Boat Trailer|0.0000|
+|Moped|0.0000|
+|Trailer – Heavy|0.0000|
+|Caravan|0.0000|
+|Tractor|0.0000|
+|Trail Bike|0.0000|
+|All Terrain Vehicle|0.0000|
+|Other Truck|0.0000|
+|Flat Deck Truck|0.0000|
+|Light Bus|0.0000|
+|Mobile Home – Light|0.0000|
+|Special Purpose Vehicle|0.0000|
+|Articulated Truck|0.0000|
+|Cab and Chassis Only|0.0000|
+|Mobile Machine|0.0000|  
+
+The results showed that half of convertibles and about 22% sports cars stolen were luxury vehicles.
 
 
 
