@@ -70,6 +70,13 @@ Graph uploaded as file Obj1_bar chart
 ### OBJECTIVE 2: Identify which vehicles are likely to be stolen
 The second objective is to explore the vehicle type, age, luxury vs standard and color fields in the stolen_vehicles table to identify which vehicles are most likely to be stolen.
 
+##### Results
+  Vehicle_type          num_vehicles  
+  Stationwagon	         945  
+  Saloon	             851  
+  Hatchback	             644  
+  Trailer	             582  
+  Utility	             466
 
 
 
