@@ -222,7 +222,13 @@ The results showed that half of convertibles and about 22% sports cars stolen we
 |Boat Trailer|105|67|5|3|0|0|	29|0|1|
 |Trailer – Heavy|90|53|9|1|3|0|12|2|10|  
 
-The results showed Silver and White are the top colors for most of the vehicle types.
+The results showed Silver and White are the top colors for most of the vehicle types.  
+
+#### 5. Create a heat map of the table comparing the vehicle types and colors
+I exported the data as CSV file and used excel to create heat map.  
+I have attached its picture obj2_heat_map for reference.  
+The heat map allowed me to extract the top 3 vehicle types that were sedans and there was no relation with any specific color. But for trailer, silver and grey specifically showed a high number of thefts. The same trend was found for boat-trailer and Heavy-trailer. That makes sense because most heavy vehicles usually come in silver or grey color. For Utility and Light Van white was the highest in number.
+
 
 
 
