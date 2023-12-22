@@ -252,8 +252,31 @@ I combined the data from stolen_vehicles and location using Left Join.
 |Waikato|371|
 |Nelson|92|
 |Taranaki|112|
-|Southland|26|
+|Southland|26|  
 
+#### 2. Combine the previous output with the population and density statistics for each region
+##### Query
+` SELECT l.region, COUNT(sv.vehicle_id) AS num_vehicle, l.population, l.density `   
+` FROM stolen_vehicles sv LEFT JOIN locations l `  
+` 	ON sv.location_id = l.location_id `  
+` GROUP BY l.region, l.population, l.density `  
+` ORDER BY num_vehicle DESC; `
+##### Results
+|region|num_vehicle|population|density|
+|:-----------------------:|:----------:|:------------:|:----------:|
+|Auckland|1638|1695200|343.09|
+|Canterbury|660|655000|14.72|
+|Bay of Plenty|446|347700|28.80|
+|Wellington|420|543500|67.52|
+|Waikato|371|513800|	21.50|
+|Northland|234|201500|16.11|
+|Gisborne|176|52100|6.21|
+|Otago|139|246000|7.89|
+|Manawatū-Whanganui	|139|258200|11.62|
+|Taranaki|112|127300|17.55|
+|Hawke's Bay|100|182700|12.92|
+|Nelson|92|54500|129.15|
+|Southland|26|	102400|3.28|
 
 
 
