@@ -395,7 +395,13 @@ To compare the results of both queries, I had used a Union function because both
 
 
 
-Only Roadbike and Utility were differentiators, rest of vehicle_type were same for both areas.  
+Only Roadbike and Utility were differentiators, rest of vehicle_type were same for both areas.    
+
+#### 4. Create a scatter plot of population versus density, and change the size of the points based on the number of vehicles stolen in each region.
+I exported the data in CSV format and used excel to create visualization. I have attached the picture Obj3a_scatter plot for your reference.  
+
+The visualization showed that Auckland had the largest population, density and highest number of vehicles were stolen from there. In Auckland that made sense because a lot of vehicles were present in small area which increased the chances of car theft, but Nelson was outlier and showed some interesting results. It had high density in fact second highest density, but number of vehicles stolen were very low. It helped me to devise that biggest driver for vehicle thefts was population rather than density. The rest of results were showing the expected trend that higher the density and population, higher would be the number of thefts.
+
 
 
 
