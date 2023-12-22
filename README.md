@@ -227,7 +227,32 @@ The results showed Silver and White are the top colors for most of the vehicle t
 #### 5. Create a heat map of the table comparing the vehicle types and colors
 I exported the data as CSV file and used excel to create heat map.  
 I have attached its picture obj2_heat_map for reference.  
-The heat map allowed me to extract the top 3 vehicle types that were sedans and there was no relation with any specific color. But for trailer, silver and grey specifically showed a high number of thefts. The same trend was found for boat-trailer and Heavy-trailer. That makes sense because most heavy vehicles usually come in silver or grey color. For Utility and Light Van white was the highest in number.
+The heat map allowed me to extract the top 3 vehicle types that were sedans and there was no relation with any specific color. But for trailer, silver and grey specifically showed a high number of thefts. The same trend was found for boat-trailer and Heavy-trailer. That makes sense because most heavy vehicles usually come in silver or grey color. For Utility and Light Van white was the highest in number.  
+### Objective 3: Identify where vehicles are likely to be stolen.  
+The third objective is to explore the population and density statistics in the regions table to identify where vehicles are getting stolen and visualize the results using a scatter plot and map.
+#### 1. Find the number of vehicles that were stolen in each region.  
+I combined the data from stolen_vehicles and location using Left Join.
+##### Query
+` SELECT region, COUNT(vehicle_id) AS num_vehicle `   
+` FROM stolen_vehicles sv LEFT JOIN locations l `  
+` 	ON sv.location_id = l.location_id `  
+` GROUP BY region; `  
+##### Results
+|region|num_vehicle|
+|:----------------:|:---------:|
+|Auckland|1638|
+|Gisborne|176|
+|Hawke's Bay|100|
+|Canterbury|660|
+|Wellington|420|
+|Otago|139|
+|Manawatū-Whanganui|139|
+|Northland|234|
+|Bay of Plenty|446|
+|Waikato|371|
+|Nelson|92|
+|Taranaki|112|
+|Southland|26|
 
 
 
