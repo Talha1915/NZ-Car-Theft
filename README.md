@@ -278,6 +278,124 @@ I combined the data from stolen_vehicles and location using Left Join.
 |Nelson|92|54500|129.15|
 |Southland|26|	102400|3.28|
 
+#### 3. Do the types of vehicles stolen in the three most dense regions differ from the three least dense regions?   
+First, I found 3 most and least dense regions.  
+##### Query  
+` SELECT l.region, COUNT(sv.vehicle_id) AS num_vehicle, l.population, l.density `   
+` FROM stolen_vehicles sv LEFT JOIN locations l `  
+` 	ON sv.location_id = l.location_id `  
+` GROUP BY l.region, l.population, l.density `  
+` ORDER BY l.density DESC; `  
+##### Results    
+My top 3 regions were:    
+|region|num_vehicle|population|density|
+|:----------------:|:----------:|:---------------:|:-----------:|
+|Auckland|1638|1695200|343.09|
+|Nelson|92|54500|129.15|
+|Wellington|420|543500|67.52|  			
+			
+			
+And my last 3 regions were:  
+|region|num_vehicle|population|density|
+|:----------------:|:----------:|:---------------:|:-----------:|
+|Otago|139|246000|7.89|
+|Gisborne|176|52100|6.21|
+|Southland|26|	102400|3.28|
+
+Then I found the vehicle types in top 3 most dense and least dense regions.
+##### Query  
+` SELECT sv.vehicle_type, COUNT(sv.vehicle_id) as num_vehicle `  
+` FROM stolen_vehicles sv LEFT JOIN locations l `  
+` 	ON sv.location_id = l.location_id `  
+` WHERE region IN ('Auckland', 'Nelson', 'Wellington') `  
+` GROUP BY sv.vehicle_type `  
+` ORDER BY num_vehicle DESC; `  
+##### Results  
+|vehicle_type|num_vehicle|
+|:-------------------:|:-----------:|
+|Stationwagon|	415|
+|Saloon|403|
+|Hatchback|361|
+|Roadbike|217|
+|Trailer|206|
+|Utility|136|
+|Moped|117|
+|Light Van|99|
+|Boat Trailer|44|
+|Trailer – Heavy|42|
+|Other Truck|21|
+|Caravan|20|
+|Sports Car|16|
+|Flat Deck Truck|11|
+|Convertible|9|
+|Mobile Home – Light|5|
+|Heavy Van|4|
+|Cab and Chassis Only|4|
+|Light Bus|3|
+|Mobile Machine|2|  
+To find the vehicle types in least 3 dense regions, I used the following query:  
+##### Query  
+` SELECT sv.vehicle_type, COUNT(sv.vehicle_id) as num_vehicle `  
+` FROM stolen_vehicles sv LEFT JOIN locations l `  
+` 	ON sv.location_id = l.location_id `  
+` WHERE region IN ('Otago', 'Gisborne', 'Southland') `  
+` GROUP BY sv.vehicle_type `  
+` ORDER BY num_vehicle DESC; `    
+##### Results  
+|vehicle_type|num_vehicle|
+|:------------------:|:-----------:|
+|Stationwagon|	79|
+|Saloon|77|
+|Utility|50|
+|Trailer|44|
+|Hatchback|43|
+|Roadbike|7|
+|Boat Trailer|6|
+|Trailer – Heavy|6|
+|Moped|6|
+|Sports Car|5|
+|Light Van|4|
+|Other Truck|3|
+|Mobile Home – Light|3|
+|Caravan|2|
+|Cab and Chassis Only|1|
+|Trail Bike|1|
+|Flat Deck Truck|1|  
+
+To compare the results of both queries, I had used a Union function because both had same columns and I also put a new column of High Density/Low Density to differentiate the results. Then I restricted the results to 5 for each query to make the results comparable.  
+##### Query  
+` (SELECT 'High Density', sv.vehicle_type, COUNT(sv.vehicle_id) as num_vehicle `  
+` FROM stolen_vehicles sv LEFT JOIN locations l `  
+` 	ON sv.location_id = l.location_id `  
+` WHERE region IN ('Auckland', 'Nelson', 'Wellington') `  
+` GROUP BY sv.vehicle_type `  
+` ORDER BY num_vehicle DESC `  
+` LIMIT 5) `  
+` UNION `
+` (SELECT 'Low Density', sv.vehicle_type, COUNT(sv.vehicle_id) as num_vehicle `  
+` FROM stolen_vehicles sv LEFT JOIN locations l `  
+` 	ON sv.location_id = l.location_id `  
+` WHERE region IN ('Otago', 'Gisborne', 'Southland') `
+` GROUP BY sv.vehicle_type `  
+` ORDER BY num_vehicle DESC `  
+` LIMIT 5); `     
+##### Results  
+|density|vehicle_type|num_vehicle|
+|:---------------:|:---------------------:|:-----------:|
+|High Density|Stationwagon|415|
+|High Density|Saloon|403|
+|High Density|Hatchback|361|
+|High Density|Roadbike|217|
+|High Density|Trailer|206|
+|Low Density|Stationwagon|79|
+|Low Density|Saloon|77|
+|Low Density|Utility|50|
+|Low Density|Trailer|44|
+|Low Density|Hatchback|43|  
+
+
+
+Only Roadbike and Utility were differentiators, rest of vehicle_type were same for both areas.  
 
 
 
